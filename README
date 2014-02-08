@@ -1,0 +1,3 @@
+GLEED2D (Generic LEvel EDitor 2D) is a general purpose, non tile-based Level Editor for 2D games of any genre that allows arbitrary placement of textures and other items in 2D space. Levels are saved in XML format. Custom Properties can be added to the items in order to represent game-specific data/events/associations between items etc. 
+------------
+I write a simple loader for Gleed2D .xml formated level file into Cocos2d-x's scene.This is a sample used the loader class.
