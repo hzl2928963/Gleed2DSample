@@ -397,6 +397,10 @@ void Gleed2DLevelInfo::startElement(void *ctx, const char *name, const char **at
 	{
 		
 	}
+	else if (elementName == "string")
+	{
+
+	}
 	else if (elementName == "Property")
 	{
 		_currentProperty=new Gleed2DCustomProperty();
@@ -407,6 +411,10 @@ void Gleed2DLevelInfo::startElement(void *ctx, const char *name, const char **at
 		if(_currentItem)
 		{
 			_currentItem->CustomProperties->setObject(_currentProperty,_currentProperty->name);
+		}
+		else if(_currentLayer)
+		{
+			_currentLayer->CustomProperties->setObject(_currentProperty,_currentProperty->name);
 		}
 		else
 		{
@@ -660,11 +668,18 @@ void Gleed2DLevelInfo::endElement(void *ctx, const char *name)
 	{
 		_currentProperty->value.colorValue=_currentColor;
 	}
+	else if (elementName == "string")
+	{
+		if(_currentProperty&&_currentProperty->type=="string")
+		{
+			_currentProperty->value.stringValue=_currentString;
+		}
+	}
 	else if (elementName == "Property")
 	{
 		if(_currentProperty&&_currentProperty->type=="Item")
 		{
-			_currentProperty->value.itemName=_currentString;
+			_currentProperty->value.stringValue=_currentString;
 		}
 		_currentProperty=NULL;
 	}

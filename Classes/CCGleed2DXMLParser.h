@@ -143,12 +143,12 @@ class CC_DLL Gleed2DPathItem :public Gleed2DItem
 };
 struct Gleed2DCustomPropertyValue{
 	bool boolValue;
-	std::string itemName;
+	std::string stringValue;
 	Color4B colorValue;
 	Point vectorValue;
 	Gleed2DCustomPropertyValue()
 		:boolValue(false),
-		itemName(""),
+		stringValue(""),
 		colorValue(255,255,255,255),
 		vectorValue(0,0)
 	{}
@@ -165,7 +165,7 @@ class CC_DLL Gleed2DCustomProperty : public Object
 	Gleed2DCustomProperty(std::string n, Gleed2DCustomPropertyValue v, std::string t, std::string d);
 	virtual ~Gleed2DCustomProperty();
 };
-class CC_DLL Gleed2DLayerInfo:public Object
+class CC_DLL Gleed2DLayerInfo:public Gleed2DObject
 {
 	/// <summary>
 	/// The name of the layer.
